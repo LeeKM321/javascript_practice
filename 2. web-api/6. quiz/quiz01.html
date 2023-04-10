@@ -22,6 +22,19 @@
     <input type="checkbox" value="3"> 조항3
     <input type="checkbox" value="4"> 조항4
 
+    <script>
+        const $check = document.querySelectorAll('input[type="checkbox"]');
+        // console.log($check);
+        for(let $c of [...$check]) {
+            $c.addEventListener('change', e => {
+                if(e.target.checked) {
+                    alert(`${e.target.value}번 항목에 동의하셨습니다.`);
+                }
+            });
+        }
+
+    </script>
+
    
 
     <br>
@@ -34,6 +47,23 @@
     ID: <input type="text" id="id">
     기억하기 <input type="checkbox" id="remember">
     <button id="check2">확인</button>
+
+    <script>
+        const $result = document.getElementById('id');
+        const $remember = document.getElementById('remember');
+
+        document.getElementById('check2').onclick = function(e) {
+            console.log('value값: ' + $result.value);
+            console.log('check값: ' + $remember.checked);
+
+            if($result.value === '') {
+                alert('아이디는 필수값입니다!');
+            } else if(!$remember.checked) {
+                alert('기억하기를 체크하지 않았습니다.');
+            }
+        }
+
+    </script>
 
     
 
